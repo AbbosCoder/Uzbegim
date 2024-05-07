@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block title %} Biz bilan aloqa {% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+        <h1>About Us</h1>
+        <p>We are a company/organization dedicated to providing excellent services.</p>
+        
+        <!-- Additional content -->
+        <h2>Our Mission</h2>
+        <p>Our mission is to...</p>
+
+        <h2>Our Team</h2>
+        <p>Meet our amazing team...</p>
+        
+        <h2>Contact Information</h2>
+        <p>You can reach us at...</p>
+        
+        <!-- Back to Home link or navigation -->
+        <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+    </div>
+
+      
+{% endblock content %}

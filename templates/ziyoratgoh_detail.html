@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ ziyoratgoh.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Ziyoratgoh nomi va asosiy rasm -->
+    <div class="text-center">
+        <h1>{{ ziyoratgoh.title }}</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ ziyoratgoh.rasm_first.url }}" class="img-fluid" style="aspect-ratio: 16/9;" alt="{{ ziyoratgoh.title }}">
+            </div>
+            <div class="col-md-6">
+                <img src="{{ ziyoratgoh.rasm_second.url }}" class="img-fluid" style="aspect-ratio: 16/9;" alt="{{ ziyoratgoh.title }}">
+            </div>
+        </div>
+    </div>
+
+    <!-- Ziyoratgoh haqida qisqacha ma'lumot -->
+    <div class="mt-4">
+        <h3>Qisqacha</h3>
+        <p>{{ ziyoratgoh.subtitle }}</p>
+    </div>
+
+    <!-- Ziyoratgoh haqida batafsil ma'lumot -->
+    <div class="mt-4 bg-light">
+        <h3>Batafsil</h3>
+        <p>{{ ziyoratgoh.about }}</p>
+    </div>
+    <style>
+        #maskan {
+            padding: 0;
+            margin: 0;
+            line-height: 1.7; 
+            
+        }
+        #pteg {
+          padding: 0;
+          margin: 0;
+          line-height: 1.7; 
+        }
+    </style>
+
+
+    <!-- Yaqin joylashgan xizmat ko'rsatuvchi maskanlar -->
+    <div class="mt-4 bg-light">
+    <br>
+        <h5 font='Source Serif Pro'>Ziyoratgohga yaqin bo'lgan xizmat ko'rsatish maskanlari </h5>
+        <br>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% if ziyoratgoh.mehmonxona %}
+                <div class="card mb-3 shadow bg-body-tertiary rounded" id='maskan' style="max-width: 23%;margin-right: 1%;margin-left: 1%;font-size: 13px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="/static/images/mehmonxona_logo.png" class="img-fluid rounded-start" alt="mehmonxona">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title"  >{{ ziyoratgoh.mehmonxona.nomi }} </h5><p class="card-text"><small class="text-body-secondary">mehmonxona</small></p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-calendar"></i> {{ziyoratgoh.mehmonxona.ish_kunlari}}</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-clock"></i> {{ziyoratgoh.mehmonxona.ochilish_vaqti}} dan <br>   {{ziyoratgoh.mehmonxona.yopilish_vaqti}} gacha</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-phone"></i> {{ziyoratgoh.mehmonxona.telefon_raqam}}</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-map-marker-alt"></i> {{ziyoratgoh.mehmonxona.viloyat}} viloyati <br> {{ziyoratgoh.mehmonxona.tuman.name}} tumani</p>
+                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{{ziyoratgoh.mehmonxona.joylashuv}}" target="_blank">Xaritadan ko'rish <img src="/static/images/joylashuv.png" style="width: 20px; height: 20px;"> </a> </p>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endif %}
+
+            {% if ziyoratgoh.oshxona %}
+            <div class="card mb-3 shadow bg-body-tertiary rounded" id='maskan' style="max-width: 24%; margin-right: 1%;font-size: 13px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="/static/images/oshxona_logo.png" class="img-fluid rounded-start" alt="oshxona">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title" >{{ ziyoratgoh.oshxona.nomi }}</h5><p ><small class="text-body-secondary">oshxona</small></p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-calendar"></i> {{ziyoratgoh.oshxona.ish_kunlari}}</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-clock"></i> {{ziyoratgoh.oshxona.ochilish_vaqti}} dan <br>   {{ziyoratgoh.oshxona.yopilish_vaqti}} gacha</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-phone"></i> {{ziyoratgoh.oshxona.telefon_raqam}}</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-map-marker-alt"></i> {{ziyoratgoh.oshxona.viloyat}} viloyati <br> {{ziyoratgoh.oshxona.tuman.name}} tumani</p>
+                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{{ziyoratgoh.mehmonxona.joylashuv}}" target="_blank">Xaritadan ko'rish <img src="/static/images/joylashuv.png" style="width: 20px; height: 20px;"> </a> </p>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endif %}
+
+            {% if ziyoratgoh.ustaxona %}
+            <div class="card mb-3 shadow bg-body-tertiary rounded" id='maskan' style="max-width: 24%;margin-right: 1%;font-size: 13px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="/static/images/ustaxona_logo.png" class="img-fluid rounded-start" alt="ustaxona">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title" >{{ ziyoratgoh.ustaxona.nomi }}</h5> <p class="card-text"><small class="text-body-secondary">ustaxona</small></p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-calendar"></i> {{ziyoratgoh.ustaxona.ish_kunlari}}</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-clock"></i> {{ziyoratgoh.ustaxona.ochilish_vaqti}} dan <br>   {{ziyoratgoh.ustaxona.yopilish_vaqti}} gacha</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-phone"></i> {{ziyoratgoh.ustaxona.telefon_raqam}}</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-map-marker-alt"></i> {{ziyoratgoh.ustaxona.viloyat}} viloyati <br> {{ziyoratgoh.ustaxona.tuman.name}} tumani</p>
+                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{{ziyoratgoh.ustaxona.joylashuv}}" target="_blank">Xaritadan ko'rish <img src="/static/images/joylashuv.png" style="width: 20px; height: 20px;"> </a> </p>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endif %}
+
+            {% if ziyoratgoh.shifoxona %}
+            <div class="card mb-3 shadow bg-body-tertiary rounded" id='maskan' style="max-width: 24%;font-size: 13px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="/static/images/shifoxona_logo.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title" >{{ ziyoratgoh.shifoxona.nomi }} </h5><p class="card-text"><small class="text-body-secondary">shifoxona</small></p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-calendar"></i> {{ziyoratgoh.shifoxona.ish_kunlari}}</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-clock"></i> {{ziyoratgoh.shifoxona.ochilish_vaqti}} dan <br>   {{ziyoratgoh.shifoxona.yopilish_vaqti}} gacha</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-phone"></i> {{ziyoratgoh.shifoxona.telefon_raqam}}</p>
+                        <p class="card-text" id='pteg' style="border-bottom: 1px solid #ccc;"><i class="fas fa-map-marker-alt"></i> {{ziyoratgoh.shifoxona.viloyat}} viloyati <br> {{ziyoratgoh.shifoxona.tuman.name}} tumani</p>
+                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{{ziyoratgoh.shifoxona.joylashuv}}" target="_blank">Xaritadan ko'rish <img src="/static/images/joylashuv.png" style="width: 20px; height: 20px;"> </a> </p>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

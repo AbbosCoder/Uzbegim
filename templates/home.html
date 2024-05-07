@@ -1,0 +1,100 @@
+{% extends 'base.html'%}
+
+{% block title %} Ziyoratgohlar {% endblock title %}
+
+{% block content %}
+
+<div class='mt-3'>
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            {% comment %} <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button> {% endcomment %}
+             {% for item in carusel_items %}
+                <button
+                    type="button"
+                    data-bs-target="#carouselExampleDark"
+                    data-bs-slide-to="{{ forloop.counter0 }}"
+                    {% if forloop.first %} class="active" aria-current="true" {% endif %}
+                    aria-label="Slide {{ forloop.counter }}"
+                ></button>
+            {% endfor %} 
+        </div>
+
+        <!-- Carousel Slides -->
+        <div class="carousel-inner">
+            {% for item in carusel_items %}
+                <div class="carousel-item {% if forloop.first %} active {% endif %}" data-bs-interval="10000">
+                    <img src="{{ item.ziyoratgoh.rasm_first.url }}" class="d-block w-100" style="aspect-ratio:25/9;" alt="{{ item.ziyoratgoh.title }}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+                        <h5>{{ item.ziyoratgoh.title }}</h5>
+                        <p>{{ item.ziyoratgoh.subtitle }}</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+<h1 class="text-center mt-5"><b>Eng mashhur Ziyoratgohlar</b></h1>
+    <div class="row row-cols-1 row-cols-md-3 bg-light g-4 mt-5 mb-5">
+
+{% for ziyoratgoh in latest_ziyoratgohlar %}
+
+    <div class='col'>
+    <div class="card" >
+      <img src="{{ziyoratgoh.rasm_first.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ ziyoratgoh.title }}</h5>
+        <p class="card-text">{{ ziyoratgoh.subtitle }}</p>
+        <a href="{% url 'ziyoratgoh_detail' ziyoratgoh.pk %}" class="btn btn-primary">Tashrif buyurish</a>
+      </div>
+    </div>
+    </div>
+
+{% empty %}
+    <li>Hech qanday ziyoratgoh topilmadi.</li>
+{% endfor %} 
+</div>
+
+<h2 class="text-center mt-5">Viloyatlar bo'yicha saralash</h2>
+{% for viloyat_name, ziyoratgohlar in viloyat_ziyoratgohlar.items %}
+    <h3 class="text-center mt-5">{{ viloyat_name }}</h3>
+    <div class="row row-cols-1 row-cols-md-4 bg-light g-4 mt-5 mb-5">
+    {% for ziyoratgoh in ziyoratgohlar %}
+        <div class='col'>
+        <div class="card" >
+          <img src="{{ziyoratgoh.rasm_first.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ ziyoratgoh.title }}</h5>
+            <p class="card-text">{{ ziyoratgoh.subtitle }}</p>
+            <a href="{% url 'ziyoratgoh_detail' ziyoratgoh.pk %}" class="btn btn-primary">Tashrif buyurish</a>
+          </div>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+{% empty %}
+    <li>Hech qanday ziyoratgoh topilmadi.</li>
+{% endfor %} 
+
+</div>
+
+
+      
+{% endblock content %}

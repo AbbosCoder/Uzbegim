@@ -1,0 +1,48 @@
+<!-- ziyoratgoh_list.html -->
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Ziyoratgohlar{% endblock %}
+
+{% block content %}
+
+<div class="mt-3">
+
+    <h1 class="text-center">Ziyoratgohlar</h1>
+
+    <!-- Search Form -->
+    <!-- Crispy-styled Search Form -->
+    <form method="GET" class="row g-3 align-items-center" style="margin-left: 80%" >
+        {% csrf_token %}  <!-- Ensure CSRF token is included for form security -->
+        {{ form|crispy }}  <!-- Use Crispy Forms to render the form -->
+        <br><br>
+        <button type="submit" class="btn btn-primary">Qidirish</button>  <!-- Submit button -->
+    </form>
+
+    <!-- Display the results -->
+    <div class="row row-cols-1 row-cols-md-4 bg-light g-4 mt-5 mb-5">
+        {% for ziyoratgoh in ziyoratgohlar %}
+            <div class="col">
+                <div class="card">
+                    <img src="{{ ziyoratgoh.rasm_first.url }}" class="card-img-top" alt="{{ ziyoratgoh.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ ziyoratgoh.title }}</h5>
+                        <p class="card-text">{{ ziyoratgoh.subtitle }}</p>
+                        <a href="{% url 'ziyoratgoh_detail' ziyoratgoh.pk %}" class="btn btn-primary">Tashrif buyurish</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col">
+                <p>Hech qanday ziyoratgoh topilmadi.</p>
+            </div>
+            
+        {% endfor %}
+    </div>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+</div>
+
+{% endblock %}
