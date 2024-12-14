@@ -1,26 +1,92 @@
 {% extends 'base.html'%}
 {% load crispy_forms_tags %}
-{% block title %} Biz bilan aloqa {% endblock title %}
+{% block title %} Biz haqimizda {% endblock title %}
 
 {% block content %}
 
 <div class="container mt-5">
-        <h1>About Us</h1>
-        <p>We are a company/organization dedicated to providing excellent services.</p>
-        
-        <!-- Additional content -->
-        <h2>Our Mission</h2>
-        <p>Our mission is to...</p>
-
-        <h2>Our Team</h2>
-        <p>Meet our amazing team...</p>
-        
-        <h2>Contact Information</h2>
-        <p>You can reach us at...</p>
-        
-        <!-- Back to Home link or navigation -->
-        <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+    <h1 class="text-center">Biz haqimizda</h1>
+    <p class="text-center">
+        Ziyoratgohlar haqidagi eng so‘nggi va ishonchli ma’lumotlarni taqdim etuvchi platformamizga xush kelibsiz!
+        Biz ziyoratgohlarning tarixiy ahamiyati va madaniy merosini keng targ‘ib qilishga intilamiz.
+    </p>
+    
+    <div class="row mt-4">
+        <!-- Rasm va matn -->
+        <div class="col-md-6">
+            <h2>Bizning Maqsadimiz</h2>
+            <p>
+                Bizning asosiy maqsadimiz O‘zbekistonning boy tarixiy va madaniy merosini kengroq auditoriyaga tanitishdir.
+                Ziyoratgohlarga tashrif buyurish madaniyatini rivojlantirish va ularning ahamiyatini ko‘rsatishga xizmat qilamiz.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img src="https://via.placeholder.com/500x300" alt="Ziyoratgoh rasm" class="img-fluid rounded">
+        </div>
     </div>
 
-      
+    <hr class="my-5">
+
+    <!-- Ikkinchi bo'lim -->
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://via.placeholder.com/500x300" alt="Ziyoratgoh rasmi" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+            <h2>Bizning Xizmatlarimiz</h2>
+            <ul>
+                <li>O‘zbekistonning eng mashhur ziyoratgohlari haqida ma’lumotlar</li>
+                <li>Yo‘nalishlar va sayohat tavsiyalari</li>
+                <li>Madaniy va tarixiy obidalar haqida maqolalar</li>
+                <li>Ziyoratgohlar bilan bog‘liq savollarga javob berish</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Jamoamiz -->
+    <div class="text-center mt-5">
+        <h2>Bizning Jamoamiz</h2>
+        <p>Bizning jamoamiz tarix, madaniyat va sayohat bo‘yicha malakali mutaxassislardan iborat.</p>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="Jamoa a'zosi" class="img-fluid rounded-circle mb-3">
+                <h5>Abbosbek Turdaliyev</h5>
+                <p>Tarixshunos</p>
+            </div>
+            <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="Jamoa a'zosi" class="img-fluid rounded-circle mb-3">
+                <h5>Madina Qodirova</h5>
+                <p>Sayohat rejalovchi</p>
+            </div>
+            <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="Jamoa a'zosi" class="img-fluid rounded-circle mb-3">
+                <h5>Jasur Karimov</h5>
+                <p>Madaniyatshunos</p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Aloqa ma'lumotlari -->
+    <h2 class="text-center">Aloqa Ma'lumotlari</h2>
+    <p class="text-center">Ziyoratgohlar bo‘yicha savollaringiz yoki takliflaringiz bo‘lsa, biz bilan bog‘laning:</p>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Telefon:</strong> +998 94 766 99 33</li>
+                <li class="list-group-item"><strong>Email:</strong> abbos2004off@gmail.com</li>
+                <li class="list-group-item"><strong>Manzil:</strong> Toshkent shahri, O‘zbekiston</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bosh sahifaga qaytish -->
+    <div class="text-center mt-4">
+        <a href="{% url 'home' %}" class="btn btn-primary">Bosh sahifaga qaytish</a>
+    </div>
+</div>
+
 {% endblock content %}

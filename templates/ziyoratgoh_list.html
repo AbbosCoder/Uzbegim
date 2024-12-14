@@ -11,10 +11,10 @@
 
     <!-- Search Form -->
     <!-- Crispy-styled Search Form -->
-    <form method="GET" class="row g-3 align-items-center" style="margin-left: 80%" >
+    <form method="GET" class="row g-3 align-items-center" style="margin-left: 80%;" >
         {% csrf_token %}  <!-- Ensure CSRF token is included for form security -->
         {{ form|crispy }}  <!-- Use Crispy Forms to render the form -->
-        <br><br>
+        
         <button type="submit" class="btn btn-primary">Qidirish</button>  <!-- Submit button -->
     </form>
 

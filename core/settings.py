@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,7 +76,47 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+JAZZMIN_SETTINGS = {
+    "site_title": "Admin Panel | O'zbegim",
+    "site_header": "O'zbegim",
+    "site_brand": "O'zbegim",
+    "welcome_sign": "Admin Panelga xush kelibsiz!",
+    "copyright": "Uzbegim",
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "topmenu_links": [
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Yordam", "url": "https://t.me/Abbosbek_Turdaliyev", "new_window": True},
+    ],
+    "usermenu_links": [
+        {"name": "Profile", "url": "/profile", "icon": "fas fa-user"},
+    ],
+    "icons": {
+        "auth.User": "fas fa-user",  # Foydalanuvchilar uchun ikonka
+        "auth.Group": "fas fa-users",  # Guruhlar uchun ikonka
+        "xizmat.Oshxona": "fas fa-utensils", 
+        "xizmat.Ustaxona": "fas fa-car",  
+        "xizmat.Shifoxona": "fas fa-hospital", 
+        "xizmat.Mehmonxona": "fas fa-hotel",  
+        "malumotlar.Region": "fas fa-map-marked-alt", 
+        "malumotlar.District": "fas fa-map-pin", 
+        "malumotlar.Ish_kuni": "fas fa-calendar-check",  
+        "xabar.Xabar": "fas fa-message", 
+        "ziyoratgoh.Carusel": "fas fa-cogs",  
+        "ziyoratgoh.Ziyoratgoh": "fas fa-place-of-worship",  
+    },
+    "changeform_format": "horizontal_tabs",
+    "changeform_format_overrides": {
+        "auth.user": "collapsible",
+    },
+}
 
+JAZZMIN_UI_TWEAKS = {
+    "navbar": "navbar-dark bg-primary",
+    "sidebar": "sidebar-dark-primary",
+    "theme": "darkly",
+    "dark_mode_theme": "darkly",
+}
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 

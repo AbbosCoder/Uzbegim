@@ -15,6 +15,9 @@ class Mehmonxona(models.Model):
     tuman=models.ForeignKey(District,on_delete=models.CASCADE)
     joylashuv = models.CharField(max_length=400)
     
+    class Meta:
+        verbose_name_plural = "Mehmonxonalar"
+    
     def __str__(self) -> str:
         return f'{self.nomi} | {self.tuman}'
     
@@ -29,6 +32,11 @@ class Oshxona(models.Model):
     viloyat = models.ForeignKey(Region,on_delete=models.CASCADE)
     tuman=models.ForeignKey(District,on_delete=models.CASCADE)
     joylashuv = models.CharField(max_length=400)
+
+
+    class Meta:
+        verbose_name_plural = "Oshxonalar"
+
 
     def __str__(self) -> str:
         return f'{self.nomi} | {self.tuman}'
@@ -45,6 +53,11 @@ class Ustaxona(models.Model):
     tuman=models.ForeignKey(District,on_delete=models.CASCADE)
     joylashuv = models.CharField(max_length=400)
     
+
+    class Meta:
+        verbose_name_plural = "Ustaxonalar"
+
+
     def __str__(self) -> str:
         return f'{self.nomi} | {self.tuman}'
     
@@ -59,6 +72,11 @@ class Shifoxona(models.Model):
     viloyat = models.ForeignKey(Region,on_delete=models.CASCADE)
     tuman=models.ForeignKey(District,on_delete=models.CASCADE)
     joylashuv = models.CharField(max_length=400)
+
+
+    class Meta:
+        verbose_name_plural = "Shifoxonalar"
+
 
     def __str__(self) -> str:
         return f'{self.nomi} | {self.tuman}'

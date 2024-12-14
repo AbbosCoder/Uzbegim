@@ -1,0 +1,116 @@
+
+Table Ziyoratgoh {
+        UUID id PK
+        string title
+        string subtitle
+        string rasm_first
+        string rasm_second
+        text about
+        UUID viloyat FK
+        UUID tuman FK
+        UUID mehmonxona FK
+        UUID oshxona FK
+        UUID ustaxona FK
+        UUID shifoxona FK
+    }
+
+Table Mehmonxona {
+        UUID id PK
+        string nomi
+        UUID ish_kunlari FK
+        time ochilish_vaqti
+        time yopilish_vaqti
+        string telefon_raqam
+        UUID viloyat FK
+        UUID tuman FK
+        string joylashuv
+    }
+
+Table Oshxona {
+        UUID id PK
+        string nomi
+        UUID ish_kunlari FK
+        time ochilish_vaqti
+        time yopilish_vaqti
+        string telefon_raqam
+        UUID viloyat FK
+        UUID tuman FK
+        string joylashuv
+    }
+
+Table Ustaxona {
+        UUID id PK
+        string nomi
+        UUID ish_kunlari FK
+        time ochilish_vaqti
+        time yopilish_vaqti
+        string telefon_raqam
+        UUID viloyat FK
+        UUID tuman FK
+        string joylashuv
+    }
+
+Table Shifoxona {
+        UUID id PK
+        string nomi
+        UUID ish_kunlari FK
+        time ochilish_vaqti
+        time yopilish_vaqti
+        string telefon_raqam
+        UUID viloyat FK
+        UUID tuman FK
+        string joylashuv
+    }
+
+Table Xabar {
+        UUID id PK
+        string name
+        string email
+        string phone_number
+        text message
+        datetime created_at
+    }
+
+Table Region {
+        UUID id PK
+        string name
+    }
+
+Table District {
+        UUID id PK
+        string name
+        UUID region FK
+    }
+
+Table Ish_kuni {
+        UUID id PK
+        string day
+    }
+
+
+
+Ziyoratgoh ||--|| Region : viloyat
+Ziyoratgoh ||--|| District : tuman
+Ziyoratgoh ||--|| Mehmonxona : mehmonxona
+Ziyoratgoh ||--|| Oshxona : oshxona
+Ziyoratgoh ||--|| Ustaxona : ustaxona
+Ziyoratgoh ||--|| Shifoxona : shifoxona
+
+Mehmonxona ||--|| Region : viloyat
+Mehmonxona ||--|| District : tuman
+Mehmonxona ||--|| Ish_kuni : ish_kunlari
+
+Oshxona ||--|| Region : viloyat
+Oshxona ||--|| District : tuman
+Oshxona ||--|| Ish_kuni : ish_kunlari
+
+Ustaxona ||--|| Region : viloyat
+Ustaxona ||--|| District : tuman
+Ustaxona ||--|| Ish_kuni : ish_kunlari
+
+Shifoxona ||--|| Region : viloyat
+Shifoxona ||--|| District : tuman
+Shifoxona ||--|| Ish_kuni : ish_kunlari
+
+District ||--|| Region : region
+

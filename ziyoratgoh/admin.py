@@ -7,7 +7,7 @@ admin.site.register(Carusel)
 @admin.register(Ziyoratgoh)
 class ZiyoratgohAdmin(admin.ModelAdmin):
     # List display
-    list_display = ('title', 'subtitle')
+    list_display = ('title', 'tuman','subtitle')
 
     # Qidirish imkoniyati
     search_fields = ('title',)

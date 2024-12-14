@@ -22,6 +22,9 @@ class Ziyoratgoh(models.Model):
     ustaxona = models.ForeignKey(Ustaxona,on_delete=models.CASCADE,blank=True)
     shifoxona = models.ForeignKey(Shifoxona,on_delete=models.CASCADE,blank=True)
 
+    class Meta:
+        verbose_name_plural = "Ziyoratgohlar"
+
     def __str__(self) -> str:
         return self.title
 
@@ -37,6 +40,9 @@ class Carusel(models.Model):
         if Carusel.objects.count() >= 5:
             raise ValidationError("Karuselga 5 tadan kop Ziyoratgoh qo'shib bo'lmaydi,Agar qo'shmoqchi bo'lsangiz qaysidir Ziyoratgohni o'chiring!")
         super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = "Karuselni sozlash"
 
     def __str__(self) -> str:
         return self.ziyoratgoh.title
